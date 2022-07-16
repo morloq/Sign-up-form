@@ -158,7 +158,3 @@ form {
 .passwordError, .passwordsMatchError {
     color: red;
 }
-
-img {
-    opacity: 0;
-}
