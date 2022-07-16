@@ -14,59 +14,55 @@ const lastNameError = document.querySelector(".lastNameError");
 
 //get email and phone fields
 const email = document.getElementById("email");
-const emailError = document.querySelector(".emailError");
+const emailError = document.querySelector("#email + span.error");
+
 const phoneNumber = document.getElementById("phoneNumber");
 const phoneNumberError = document.querySelector(".phoneNumberError");
 
 //get submit button:
 const button = document.querySelector(".submitButton");
 
-/*const isRequired = value => value === '' ? false : true;//function isRequired() returns true if the input argument is empty
 
-const isBetween = (length, min, max) => length < min || length > max ? false: true;//function isBetween() false if the length argument is not between min and max
+//get form:
+const form = document.querySelector(".form");
 
-//check whether email is valid with regex:
-const isEmailValid = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
 
-//check if password is secure:
-const isPasswordSecure = (password) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,20})");
-    return re.test(password);
-};*/
+function showError() {
+    if(email.validity.valueMissing) {
+        emailError.textContent = "Enter an email address";
+    }
+    else if(email.validity.typeMismatch) {
+        emailError.textContent = "Entered value needs to be an email"
+        email.style.borderColor = "red";
+    }
+    else if(email.validity.tooShort) {//doesn't work
+        emailError.textContent = `Email should be at least ${email.minLength} characters`;
+        email.style.borderColor = "red";
+    }
+}
+
+form.addEventListener("submit", function (event) {
+    if(!email.validity.valid) {
+        showError();
+        event.preventDefault;
+    }
+});
+
+email.addEventListener('input', function (event) {
+    if(email.validity.valid) {
+        emailError.textContent= "";
+        emailError.className = "error";
+    }
+    else {
+        showError();
+    }
+});
+
+emailError.className = "error active";
+
+
 
 button.addEventListener("click", () => {
-    //name requirements:
-    if(!isNaN(firstName.value)) {
-
-    }
-    else {
-        firstName.style.border = "green";
-        firstNameError.textContent = "";
-    }
-
-    if(lastName.value.search(/[0-9]/) < 0) {
-        lastNameError.textContent = "Name cannot be a number";
-    }
-    else {
-        lastName.style.border = "green";
-        lastNameError.textContent = "";
-    }
-
-    //email requirements:
-    
-    //phoneNumber requirements:
-    if(isNaN(phoneNumber.value)) {
-        //must be numbers...
-    }
-    else if(phoneNumber.length < 8/*? */) {
-        //length not accurate
-    }
-    else {
-
-    }
 
     //password requirements:
     if(password.value.length < 8) {
@@ -97,7 +93,6 @@ button.addEventListener("click", () => {
         password.style.borderColor = "green";
         passwordError.textContent = "";
     }
-
     //passwords must match
     if(password.value != passwordConfirm.value) {
         passwordConfirmError.textContent = "Passwords do not match";
