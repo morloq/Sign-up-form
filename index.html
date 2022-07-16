@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./javaScript/doStuff.js"></script>
-    
+
     <title>Sign-up Form</title>
 </head>
 <body>
@@ -51,7 +51,6 @@
                     <div>
                         <label for="phoneNumber">PHONE NUMBER</label>
                         <input type="tel" id="phoneNumber" name="phoneNumber" required autocomplete="phoneNumber">
-                        <span classs="error"></span>
                     </div>
                     
                     <div>
@@ -61,12 +60,12 @@
                     </div>
                     <div>
                         <label for="confirmPassword">CONFIRM PASSWORD</label>
-                        <input type="password" id="confirmPassword" name="password" required autocomplete="off">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="off">
                         <span class="passwordsMatchError"></span>
                     </div>  
             </div>
                     <div class="SignUp">
-                        <button type="submit">Create Account</button>
+                        <button type="submit" class="submitButton">Create Account</button>
                         <p class="text">Already have an account? <a href="#" class="logIn">Log in</a></p>
                     </div>
                 </form>
