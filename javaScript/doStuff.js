@@ -5,12 +5,54 @@ const passwordError = document.querySelector(".passwordError");
 const passwordConfirm = document.getElementById("confirmPassword");
 const passwordConfirmError = document.querySelector(".passwordsMatchError");
 
+
+//get name fields
+const firstName = document.getElementById("firstName");
+const firstNameError = document.querySelector(".firstNameError");
+const lastName = document.getElementById("lastName");
+const lastNameError = document.querySelector(".lastNameError");
+
+//get email and phone fields
+const email = document.getElementById("email");
+const emailError = document.querySelector(".emailError");
+const phoneNumber = document.getElementById("phoneNumber");
+const phoneNumberError = document.querySelector(".phoneNumberError");
+
 //get submit button:
 const button = document.querySelector(".submitButton");
 
 button.addEventListener("click", () => {
+    //name requirements:
+    if(!isNaN(firstName.value)) {
+
+    }
+    else {
+        firstName.style.border = "green";
+        firstNameError.textContent = "";
+    }
+
+    if(lastName.value.search(/[0-9]/) < 0) {
+        lastNameError.textContent = "Name cannot be a number";
+    }
+    else {
+        lastName.style.border = "green";
+        lastNameError.textContent = "";
+    }
+
+    //email requirements:
+    
+    //phoneNumber requirements:
+    if(isNaN(phoneNumber.value)) {
+        //must be numbers...
+    }
+    else if(phoneNumber.length < 8/*? */) {
+        //length not accurate
+    }
+    else {
+
+    }
+
     //password requirements:
-   
     if(password.value.length < 8) {
         passwordError.textContent = "Password must have at least 8 characters";
         password.style.borderColor = "red";
