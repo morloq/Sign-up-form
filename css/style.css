@@ -1,13 +1,26 @@
 .container {
     display:flex;
+
+    gap: 30px;
+
     height: 100vh;
     width: 100vh;
-    gap: 50px;
+}
+
+body {
+    display:flex;
+    justify-content: space-between;
+}
+
+* {
     margin:0;
+    padding:0;
 }
 .image {
     display:flex;
     flex-direction: column;
+    flex: 0 0 1;
+
     width: 650px;
     height: 100%;
     
@@ -17,6 +30,7 @@
 .transparentContainer {
     display: flex;
     gap: 20px;
+
     align-items: center;
     justify-content: center;
 
@@ -54,4 +68,63 @@ a{
 .signup {
     display:flex;
     flex-direction: column;
+
+    position: absolute;
+    top: 0;
+    left: 800px;
+
+    margin: 180px 120px;
+    margin-left: 0;
+    padding-right: 30px;
+
+    max-width: 700px;
+    min-width: 200px;
+
 }
+
+.text1 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.signUpForm {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    min-width: 200px;
+    max-width: 100% vh;
+    height: 200px;
+    padding: 20px;
+
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+button {
+    background: #596D48;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
+    margin-bottom: 30px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.logIn {
+    color:#596D48;
+    font-weight: bold;
+}
+
+h4 {
+    font-weight:200;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+/*label {
+    display: block;
+}*/
+

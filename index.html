@@ -24,31 +24,41 @@
         <div class="signup">
 
             <div class="signUpText">
-                <p class="text">Some text...</p>
-                <p class="text">Some more text... Sign up blah blah</p>
+                <p class="text1">
+                    “I saw a study that said speaking in front of a crowd is considered the number one fear of the average person. Number two was death. This means to the average person, if you have to be at a funeral, you would rather be in the casket than doing the eulogy.”
+                </p>
+                <p class="text1">—Jerry Seinfeld</p>
             </div>
 
             <div class="signUpForm">
-                <form action="/" method="Post">
-                    <h4>Let's do this</h4>
+                <h4>Let's do this</h4>
+                <form action="/" method="GET">
+                    
+                    <div>
+                        <label for="firstName" class="label1">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="field1">
+                    </div>
+                    <div>
+                        <label for="lastName" class="label2">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="field2">
+                    </div>
 
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName">
+                    
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="password">
+                    </div>  
 
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName">
-
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
-
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="password">
                 </form>
             </div>
 
             <div class="SignUp">
                 <button>Create Account</button>
-                <p class="text">Already have an account?<a class="loginLink" href="#">Log in</a></p>
+                <p class="text">Already have an account? <a href="#" class="logIn">Log in</a></p>
             </div>
         </div>
     </div>
