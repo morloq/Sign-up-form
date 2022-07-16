@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./javaScript/doStuff.js"></script>
+    
     <title>Sign-up Form</title>
 </head>
 <body>
@@ -33,33 +35,42 @@
             <div class="signUpForm">
                 <h4>Let's do this</h4>
                 <form action="/" method="GET">
+                
+                    <div>
+                        <label for="firstName">FIRST NAME</label>
+                        <input type="text" id="firstName" name="firstName" required autocomplete="firstName">
+                    </div>
+                    <div>
+                        <label for="lastName">LAST NAME</label>
+                        <input type="text" id="lastName" name="lastName" required autocomplete="lastName">
+                    </div>
+                    <div>
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="phoneNumber">PHONE NUMBER</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required autocomplete="phoneNumber">
+                        <span classs="error"></span>
+                    </div>
                     
                     <div>
-                        <label for="firstName" class="label1">First Name</label>
-                        <input type="text" id="firstName" name="firstName" class="field1">
+                        <label for="password">PASSWORD</label>
+                        <input type="password" id="password" name="password" required autocomplete="off">
+                        <span class="passwordError"></span>
                     </div>
                     <div>
-                        <label for="lastName" class="label2">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" class="field2">
-                    </div>
-
-                    
-                    <div>
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password">
-                    </div>
-                    <div>
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="password">
+                        <label for="confirmPassword">CONFIRM PASSWORD</label>
+                        <input type="password" id="confirmPassword" name="password" required autocomplete="off">
+                        <span class="passwordsMatchError"></span>
                     </div>  
-
+            </div>
+                    <div class="SignUp">
+                        <button type="submit">Create Account</button>
+                        <p class="text">Already have an account? <a href="#" class="logIn">Log in</a></p>
+                    </div>
                 </form>
-            </div>
-
-            <div class="SignUp">
-                <button>Create Account</button>
-                <p class="text">Already have an account? <a href="#" class="logIn">Log in</a></p>
-            </div>
+            
         </div>
     </div>
 </body>
