@@ -21,6 +21,22 @@ const phoneNumberError = document.querySelector(".phoneNumberError");
 //get submit button:
 const button = document.querySelector(".submitButton");
 
+/*const isRequired = value => value === '' ? false : true;//function isRequired() returns true if the input argument is empty
+
+const isBetween = (length, min, max) => length < min || length > max ? false: true;//function isBetween() false if the length argument is not between min and max
+
+//check whether email is valid with regex:
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+//check if password is secure:
+const isPasswordSecure = (password) => {
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,20})");
+    return re.test(password);
+};*/
+
 button.addEventListener("click", () => {
     //name requirements:
     if(!isNaN(firstName.value)) {
