@@ -11,8 +11,12 @@ const button = document.querySelector(".submitButton");
 button.addEventListener("click", () => {
     //password requirements:
    
-    if(password.value.length < 8 || password.value.length > 20) {
-        passwordError.textContent = "Password length must be between 8 and 20 characters";
+    if(password.value.length < 8) {
+        passwordError.textContent = "Password must have at least 8 characters";
+        password.style.borderColor = "red";
+    }
+    else if(password.value.length > 20) {
+        passwordError.textContent = "Password must have less than 20 characters";
         password.style.borderColor = "red";
     }
     else if(password.value.search(/[a-z]/) < 0) { //search returns negative values if regex is not found
