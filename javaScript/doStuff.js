@@ -29,6 +29,7 @@ const form = document.querySelector(".form");
 function showErrorEmail() {
     if(email.validity.valueMissing) {
         emailError.textContent = "Enter an email address";
+        email.style.borderColor = "red";
     }
     else if(email.validity.tooShort) {//suddenly does work. oh well
         emailError.textContent = `Email should be at least ${email.minLength} characters`;
@@ -44,24 +45,11 @@ function showErrorEmail() {
     }
 }
 
-form.addEventListener("submit", function (event) {
-    if(!email.validity.valid) {
-        showErrorEmail();
-        event.preventDefault;
+function showErrorPassword() {
+    if(password.validity.valueMissing) {
+        passwordError.textContent = "Enter a password";
     }
-    //same thing for password, password confirm, first name, last name and telefone number! use else if
-});
-
-email.addEventListener('input', function (event) {
-    showErrorEmail();
-});
-
-
-
-button.addEventListener("click", () => {
-
-    //password requirements:
-    if(password.value.length < 8) {
+    else if(password.value.length < 8) {
         passwordError.textContent = "Password must have at least 8 characters";
         password.style.borderColor = "red";
     }
@@ -89,13 +77,42 @@ button.addEventListener("click", () => {
         password.style.borderColor = "green";
         passwordError.textContent = "";
     }
-    //passwords must match
-    if(password.value != passwordConfirm.value) {
+};
+
+function showErrorConfirmPassword() {
+    if(passwordConfirm.validity.valueMissing) {
+        passwordConfirmError.textContent = "Cannot be empty";
+        passwordConfirm.style.borderColor = "red";
+
+    }
+    else if(password.value != passwordConfirm.value) {
         passwordConfirmError.textContent = "Passwords do not match";
         passwordConfirm.style.borderColor = "red";
     }
-    else if(password.value == passwordConfirm.value && password.value.lenght > 0){
+    else if(password.value == passwordConfirm.value){
         passwordConfirm.style.borderColor = "green";
         passwordConfirmError.textContent = "";
     }
+}
+
+form.addEventListener("submit", function (event) {
+    if(!email.validity.valid) {
+        showErrorEmail();
+        showErrorPassword();
+        showErrorConfirmPassword();
+        event.preventDefault;
+    }
+    //same thing for password, password confirm, first name, last name and telefone number! use else if
+});
+
+email.addEventListener('input', function (event) {
+    showErrorEmail();
+});
+
+password.addEventListener('input', function (event) {
+    showErrorPassword();
+});
+
+passwordConfirm.addEventListener('input', function (event) {
+    showErrorConfirmPassword();
 });
