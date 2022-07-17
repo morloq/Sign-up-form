@@ -155,6 +155,6 @@ form {
     gap: 2rem;
 }
 
-.passwordError, .passwordsMatchError , span{
+.passwordError, .passwordsMatchError , p.error{
     color: red;
 }

@@ -14,7 +14,7 @@ const lastNameError = document.querySelector(".lastNameError");
 
 //get email and phone fields
 const email = document.getElementById("email");
-const emailError = document.querySelector("#email + span.error");
+const emailError = document.querySelector("#email + p.error");
 
 const phoneNumber = document.getElementById("phoneNumber");
 const phoneNumberError = document.querySelector(".phoneNumberError");
