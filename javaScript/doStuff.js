@@ -5,7 +5,6 @@ const passwordError = document.querySelector(".passwordError");
 const passwordConfirm = document.getElementById("confirmPassword");
 const passwordConfirmError = document.querySelector(".passwordsMatchError");
 
-
 //get name fields
 const firstName = document.getElementById("firstName");
 const firstNameError = document.querySelector(".firstNameError");
@@ -27,38 +26,35 @@ const button = document.querySelector(".submitButton");
 const form = document.querySelector(".form");
 
 
-function showError() {
+function showErrorEmail() {
     if(email.validity.valueMissing) {
         emailError.textContent = "Enter an email address";
     }
-    else if(email.validity.typeMismatch) {
-        emailError.textContent = "Entered value needs to be an email"
-        email.style.borderColor = "red";
-    }
-    else if(email.validity.tooShort) {//doesn't work
+    else if(email.validity.tooShort) {//suddenly does work. oh well
         emailError.textContent = `Email should be at least ${email.minLength} characters`;
         email.style.borderColor = "red";
+    }
+    else if(!email.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        emailError.textContent = "Email must be valid";
+        email.style.borderColor = "red";
+    }
+    else {
+        emailError.textContent = "";
+        email.style.borderColor = "limegreen";
     }
 }
 
 form.addEventListener("submit", function (event) {
     if(!email.validity.valid) {
-        showError();
+        showErrorEmail();
         event.preventDefault;
     }
+    //same thing for password, password confirm, first name, last name and telefone number! use else if
 });
 
 email.addEventListener('input', function (event) {
-    if(email.validity.valid) {
-        emailError.textContent= "";
-        emailError.className = "error";
-    }
-    else {
-        showError();
-    }
+    showErrorEmail();
 });
-
-emailError.className = "error active";
 
 
 
