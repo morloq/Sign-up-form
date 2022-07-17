@@ -129,6 +129,21 @@ function containsNumber(str) {
     return /\d/.test(str);
 }
 
+function showErrorPhoneNumber() {
+    if(phoneNumber.validity.valueMissing) {
+        phoneNumberError.textContent = "Enter a phone number";
+        phoneNumber.style.borderColor = "red";
+    }
+    else if(!phoneNumber.value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
+        phoneNumberError.textContent = "Phone number must be valid";
+        phoneNumber.style.borderColor = "red";
+    }
+    else {
+        phoneNumberError.textContent = "";
+        phoneNumber.style.borderColor = "limegreen";
+    }
+}
+
 form.addEventListener("submit", function (event) {
     if(!email.validity.valid) {
         showErrorEmail();
@@ -136,6 +151,7 @@ form.addEventListener("submit", function (event) {
         showErrorConfirmPassword();
         showErrorFirstName();
         showErrorLastName();
+        showErrorPhoneNumber();
         event.preventDefault;
     }
     //ftelefone number! use else if
@@ -159,4 +175,8 @@ firstName.addEventListener('input', function (event) {
 
 lastName.addEventListener('input', function (event) {
     showErrorLastName();
+});
+
+phoneNumber.addEventListener('input', function (event) {
+    showErrorPhoneNumber();
 });
