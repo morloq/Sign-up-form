@@ -13,7 +13,7 @@ const lastNameError = document.querySelector(".lastNameError");
 
 //get email and phone fields
 const email = document.getElementById("email");
-const emailError = document.querySelector("#email + p.error");
+const emailError = document.querySelector("#email + p.emailError");
 
 const phoneNumber = document.getElementById("phoneNumber");
 const phoneNumberError = document.querySelector(".phoneNumberError");
@@ -95,14 +95,50 @@ function showErrorConfirmPassword() {
     }
 }
 
+function showErrorFirstName() {
+    if(firstName.validity.valueMissing) {
+        firstNameError.textContent = "Enter your name";
+        firstName.style.borderColor = "red";
+    }
+    else if(containsNumber(firstName.value)) {
+        firstNameError.textContent   = "Cannot contain numbers";
+        firstName.style.borderColor = "red";
+    }
+    else {
+        firstNameError.textContent = "";
+        firstName.style.borderColor = "limegreen";
+    }
+}
+
+function showErrorLastName() {
+    if(lastName.validity.valueMissing) {
+        lastNameError.textContent = "Enter your last name";
+        lastName.style.borderColor = "red";
+    }
+    else if(containsNumber(lastName.value)) {
+        lastNameError.textContent   = "Cannot contain numbers";
+        lastName.style.borderColor = "red";
+    }
+    else {
+        lastNameError.textContent = "";
+        lastName.style.borderColor = "limegreen";
+    }
+}
+
+function containsNumber(str) {
+    return /\d/.test(str);
+}
+
 form.addEventListener("submit", function (event) {
     if(!email.validity.valid) {
         showErrorEmail();
         showErrorPassword();
         showErrorConfirmPassword();
+        showErrorFirstName();
+        showErrorLastName();
         event.preventDefault;
     }
-    //same thing for password, password confirm, first name, last name and telefone number! use else if
+    //ftelefone number! use else if
 });
 
 email.addEventListener('input', function (event) {
@@ -115,4 +151,12 @@ password.addEventListener('input', function (event) {
 
 passwordConfirm.addEventListener('input', function (event) {
     showErrorConfirmPassword();
+});
+
+firstName.addEventListener('input', function (event) {
+    showErrorFirstName();
+});
+
+lastName.addEventListener('input', function (event) {
+    showErrorLastName();
 });

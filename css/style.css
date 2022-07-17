@@ -151,6 +151,6 @@ form {
     gap: 2rem;
 }
 
-.passwordError, .passwordsMatchError , p.error{
+.passwordError, .passwordsMatchError, .emailError, .firstNameError, .lastNameError{
     color: red;
 }
